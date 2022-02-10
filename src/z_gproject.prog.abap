@@ -6,7 +6,6 @@
 REPORT z_stephen_project.
 TYPE-POOLS: icon.
 
-
 PARAMETERS: p_uname TYPE string,
             p_pw    TYPE string.
 
