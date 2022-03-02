@@ -1,9 +1,9 @@
 *&---------------------------------------------------------------------*
-*& Report Z_STEPHEN_PROJECT
+*& Include Z_GPROJECT_MAIN
 *&---------------------------------------------------------------------*
 *& 基于ABAP的商品库存管理系统
 *&---------------------------------------------------------------------*
-REPORT z_stephen_project.
+*REPORT z_stephen_project.
 TYPE-POOLS: icon.
 
 PARAMETERS: p_uname TYPE string,
@@ -77,6 +77,7 @@ AT SELECTION-SCREEN.
     WHEN 'BUT1'.
 *      set SCREEN 2000.
       LEAVE TO SCREEN 1111.
+*      include Z_GPROJECT_1.
     WHEN 'BUT2'.
       MESSAGE 'Button 2 was clicked' TYPE 'I'.
     WHEN 'BUT3'.
@@ -86,7 +87,7 @@ AT SELECTION-SCREEN.
 
 
 FORM data.
-  set SCREEN 1111.
+
 *  INSERT zgpuser FROM @( VALUE #( UNAME = 'AUTOELA' password = '111111' ) ).
   SELECT * FROM zgpuser INTO @DATA(lgpuser).
     IF p_uname = lgpuser-uname AND p_pw = lgpuser-password.

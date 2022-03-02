@@ -3,9 +3,10 @@
 *&---------------------------------------------------------------------*
 *&
 *&---------------------------------------------------------------------*
-REPORT Z_GPROJECT_1.
-TABLES: sscrfields,stxftxt,AFPO,AUFK,vbak.
-PARAMETERS P_UNAME TYPE SY-UNAME DEFAULT SY-UNAME   .
+*REPORT Z_GPROJECT_1.
+set SCREEN 1111.
+TABLES: stxftxt,AFPO,AUFK,vbak.
+select-OPTIONS P_UNAME1 FOR SY-UNAME DEFAULT SY-UNAME   .
 
 START-OF-SELECTION.
 
