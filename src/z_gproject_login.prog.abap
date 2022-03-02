@@ -40,9 +40,6 @@ AT SELECTION-SCREEN.
       LOOP AT gt_user INTO DATA(lt_user).
         IF p_uname = lt_user-uname AND p_pw = lt_user-password.
           SUBMIT z_gproject_catalogue VIA SELECTION-SCREEN.
-*          SUBMIT zhw13 VIA SELECTION-SCREEN.
-        ELSE.
-          CONTINUE.
         ENDIF.
       ENDLOOP.
 
