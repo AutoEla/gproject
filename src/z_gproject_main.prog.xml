@@ -197,6 +197,30 @@
      <ENTRY>基于ABAP的商品库存管理系统</ENTRY>
      <LENGTH>15</LENGTH>
     </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_AUTH1</KEY>
+     <ENTRY>管理员</ENTRY>
+     <LENGTH>11</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_AUTH2</KEY>
+     <ENTRY>客户</ENTRY>
+     <LENGTH>10</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_PW</KEY>
+     <ENTRY>密码：</ENTRY>
+     <LENGTH>11</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_UNAME</KEY>
+     <ENTRY>用户名：</ENTRY>
+     <LENGTH>12</LENGTH>
+    </item>
    </TPOOL>
   </asx:values>
  </asx:abap>

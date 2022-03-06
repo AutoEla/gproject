@@ -36,12 +36,22 @@ AT SELECTION-SCREEN.
 * 相应按钮事件
   CASE sscrfields.
     WHEN 'BUT1'.
-      SELECT * FROM zgpuser INTO TABLE @gt_user.
-      LOOP AT gt_user INTO DATA(lt_user).
-        IF p_uname = lt_user-uname AND p_pw = lt_user-password.
-          SUBMIT z_gproject_catalogue VIA SELECTION-SCREEN.
-        ENDIF.
-      ENDLOOP.
+      IF p_auth1 IS NOT INITIAL.
+        SELECT * FROM zgpuser INTO TABLE @gt_user.
+        LOOP AT gt_user INTO DATA(lt_user).
+          IF p_uname = lt_user-uname AND p_pw = lt_user-password.
+            SUBMIT z_gproject_admin_catalogue VIA SELECTION-SCREEN.
+          ENDIF.
+        ENDLOOP.
+      ELSE.
+        SELECT * FROM zgpuser INTO TABLE @gt_user.
+        LOOP AT gt_user INTO DATA(lt_user_1).
+          IF p_uname = lt_user_1-uname AND p_pw = lt_user_1-password.
+            SUBMIT z_gproject_custom_catalogue VIA SELECTION-SCREEN.
+          ENDIF.
+        ENDLOOP.
+      ENDIF.
+
 
 
     WHEN 'BUT2'.
@@ -49,9 +59,7 @@ AT SELECTION-SCREEN.
     WHEN 'BUT3'.
       MESSAGE 'Button 3 was clicked' TYPE 'I'.
   ENDCASE.
-MODULE exit INPUT.
-  CALL SCREEN 1000.
-ENDMODULE.
+
 
 *--------------------------------------------------------------*
 *Initialization

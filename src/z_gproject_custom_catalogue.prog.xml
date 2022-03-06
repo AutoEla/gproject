@@ -3,18 +3,37 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <PROGDIR>
-    <NAME>Z_GPROJECT_CATALOGUE</NAME>
+    <NAME>Z_GPROJECT_CUSTOM_CATALOGUE</NAME>
     <SUBC>1</SUBC>
     <RSTAT>P</RSTAT>
     <RLOAD>E</RLOAD>
+    <FIXPT>X</FIXPT>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
    <TPOOL>
     <item>
      <ID>I</ID>
      <KEY>001</KEY>
-     <ENTRY>入库管理</ENTRY>
+     <ENTRY>统计分析</ENTRY>
      <LENGTH>14</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>002</KEY>
+     <ENTRY>财务报表打印</ENTRY>
+     <LENGTH>16</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>003</KEY>
+     <ENTRY>修改密码</ENTRY>
+     <LENGTH>14</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>004</KEY>
+     <ENTRY>返回主界面</ENTRY>
+     <LENGTH>15</LENGTH>
     </item>
     <item>
      <ID>R</ID>
