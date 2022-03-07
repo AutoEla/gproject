@@ -129,7 +129,7 @@ INITIALIZATION.
 
 AT SELECTION-SCREEN.
   CASE sscrfields.
-    WHEN 'LB1'.
+    WHEN 'LB1'.  "入库管理
 *      SELECT * FROM zgpuser INTO TABLE @gt_user.
 *      LOOP AT gt_user INTO DATA(lt_user).
 *        IF p_uname = lt_user-uname AND p_pw = lt_user-password.
@@ -138,18 +138,18 @@ AT SELECTION-SCREEN.
 *      ENDLOOP.
 
 
-    WHEN 'LB2'.
+    WHEN 'LB2'.  "出库管理
       MESSAGE 'Button 2 was clicked' TYPE 'I'.
-    WHEN 'LB3'.
+    WHEN 'LB3'.  "商品管理
       MESSAGE 'Button 3 was clicked' TYPE 'I'.
-    WHEN 'LB4'.
+    WHEN 'LB4'.  "库存管理
       MESSAGE 'Button 3 was clicked' TYPE 'I'.
-    WHEN 'LB5'.
+    WHEN 'LB5'.  "财务报表管理
       MESSAGE 'Button 3 was clicked' TYPE 'I'.
-    WHEN 'LB6'.
+    WHEN 'LB6'.  "统计分析
       MESSAGE 'Button 3 was clicked' TYPE 'I'.
-    WHEN 'LB7'.
-      MESSAGE 'Button 3 was clicked' TYPE 'I'.
-    WHEN 'LB8'.
+    WHEN 'LB7'.  "修改密码
+      SUBMIT Z_GPROJECT_CHANGE_PASSWORD VIA SELECTION-SCREEN.
+    WHEN 'LB8'.  "返回主界面
       SUBMIT z_gproject_main VIA SELECTION-SCREEN.
   ENDCASE.
