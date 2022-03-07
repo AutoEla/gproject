@@ -141,7 +141,7 @@ AT SELECTION-SCREEN.
     WHEN 'LB2'.  "出库管理
       MESSAGE 'Button 2 was clicked' TYPE 'I'.
     WHEN 'LB3'.  "商品管理
-      MESSAGE 'Button 3 was clicked' TYPE 'I'.
+      SUBMIT Z_GPROJECT_MATERIAL_MANAGE VIA SELECTION-SCREEN.
     WHEN 'LB4'.  "库存管理
       MESSAGE 'Button 3 was clicked' TYPE 'I'.
     WHEN 'LB5'.  "财务报表管理
