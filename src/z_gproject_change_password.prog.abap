@@ -34,7 +34,8 @@ START-OF-SELECTION.
   PERFORM change_password.
 
 FORM change_password.
-*  INSERT zgpuser FROM @( VALUE #( UNAME = 'AUTOELA' password = '111111' ) ).
+*  INSERT zgpuser FROM @( VALUE #( UNAME = 'auto' password = '123456' ) ).
+*  INSERT zgpuser FROM @( VALUE #( UNAME = 'AUTOELA' password = '123456' ) ).
 *  delete FROM zgpuser.
   SELECT * FROM zgpuser INTO TABLE @gt_user.
   LOOP AT gt_user INTO DATA(lt_user).
@@ -48,7 +49,6 @@ FORM change_password.
       ELSE.
         ROLLBACK WORK.
         MESSAGE '保存出错' TYPE 'S' DISPLAY LIKE 'E'.
-
       ENDIF.
 
     ENDIF.
