@@ -130,20 +130,13 @@ INITIALIZATION.
 AT SELECTION-SCREEN.
   CASE sscrfields.
     WHEN 'LB1'.  "入库管理
-*      SELECT * FROM zgpuser INTO TABLE @gt_user.
-*      LOOP AT gt_user INTO DATA(lt_user).
-*        IF p_uname = lt_user-uname AND p_pw = lt_user-password.
-*          SUBMIT z_gproject_catalogue VIA SELECTION-SCREEN.
-*        ENDIF.
-*      ENDLOOP.
-
-
+      SUBMIT Z_GPROJECT_IN_STORAGE VIA SELECTION-SCREEN.
     WHEN 'LB2'.  "出库管理
-      MESSAGE 'Button 2 was clicked' TYPE 'I'.
+      SUBMIT Z_GPROJECT_OUT_OF_STORAGE VIA SELECTION-SCREEN.
     WHEN 'LB3'.  "商品管理
       SUBMIT Z_GPROJECT_MATERIAL_MANAGE VIA SELECTION-SCREEN.
     WHEN 'LB4'.  "库存管理
-      MESSAGE 'Button 3 was clicked' TYPE 'I'.
+      SUBMIT Z_GPROJECT_STOCK_MANAGE VIA SELECTION-SCREEN.
     WHEN 'LB5'.  "财务报表管理
       MESSAGE 'Button 3 was clicked' TYPE 'I'.
     WHEN 'LB6'.  "统计分析

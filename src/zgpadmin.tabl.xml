@@ -3,17 +3,17 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD02V>
-    <TABNAME>ZGPUSER</TABNAME>
+    <TABNAME>ZGPADMIN</TABNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <TABCLASS>TRANSP</TABCLASS>
-    <DDTEXT>graduation project</DDTEXT>
+    <DDTEXT>admin表</DDTEXT>
     <CONTFLAG>A</CONTFLAG>
     <EXCLASS>4</EXCLASS>
    </DD02V>
    <DD09L>
-    <TABNAME>ZGPUSER</TABNAME>
+    <TABNAME>ZGPADMIN</TABNAME>
     <AS4LOCAL>A</AS4LOCAL>
-    <TABKAT>2</TABKAT>
+    <TABKAT>4</TABKAT>
     <TABART>APPL0</TABART>
     <BUFALLOW>N</BUFALLOW>
    </DD09L>

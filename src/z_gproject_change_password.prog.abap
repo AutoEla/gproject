@@ -6,10 +6,10 @@
 REPORT z_gproject_change_password.
 TABLES sscrfields."引用词典对象
 
-PARAMETERS:p_old TYPE string,
-           p_new TYPE string.
+PARAMETERS:p_old TYPE xuncode,
+           p_new TYPE xuncode.
 
-DATA: gt_user TYPE TABLE OF zgpuser WITH HEADER LINE.
+DATA: gt_user TYPE TABLE OF zgpadmin WITH HEADER LINE.
 
 SELECTION-SCREEN PUSHBUTTON /1(50) lb1 USER-COMMAND lb1 VISIBLE LENGTH 20.
 
@@ -34,21 +34,18 @@ START-OF-SELECTION.
   PERFORM change_password.
 
 FORM change_password.
-*  INSERT zgpuser FROM @( VALUE #( UNAME = 'auto' password = '123456' ) ).
-*  INSERT zgpuser FROM @( VALUE #( UNAME = 'AUTOELA' password = '123456' ) ).
-*  delete FROM zgpuser.
-  SELECT * FROM zgpuser INTO TABLE @gt_user.
+  SELECT * FROM zgpadmin INTO TABLE @gt_user.
   LOOP AT gt_user INTO DATA(lt_user).
     IF p_old = lt_user-password.
       lt_user-password = p_new.
       MODIFY gt_user FROM lt_user.
-      update zgpuser FROM lt_user.
+      update zgpadmin FROM lt_user.
       IF sy-subrc = 0.
         COMMIT WORK AND WAIT.
-        MESSAGE '更新成功' TYPE 'S'.
+        MESSAGE '更新成功' TYPE 'I'.
       ELSE.
         ROLLBACK WORK.
-        MESSAGE '保存出错' TYPE 'S' DISPLAY LIKE 'E'.
+        MESSAGE '保存出错' TYPE 'I' DISPLAY LIKE 'E'.
       ENDIF.
 
     ENDIF.

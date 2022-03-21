@@ -11,7 +11,7 @@
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>15</SCRLEN2>
     <SCRLEN3>20</SCRLEN3>
-    <DDTEXT>111</DDTEXT>
+    <DDTEXT>material number</DDTEXT>
     <REPTEXT>Material</REPTEXT>
     <SCRTEXT_S>Material</SCRTEXT_S>
     <SCRTEXT_M>Material</SCRTEXT_M>
