@@ -5,6 +5,8 @@
 *&---------------------------------------------------------------------*
 REPORT z_gproject_in_storage.
 
+TABLES: sscrfields.
+
 PARAMETERS:p_matnr1 TYPE zmatnr1,
            p_mname  TYPE string,
            p_volum  TYPE volum,
@@ -15,7 +17,9 @@ PARAMETERS:p_matnr1 TYPE zmatnr1,
 
 DATA: gt_otf   TYPE STANDARD TABLE OF itcoo,
       gt_docs  TYPE STANDARD TABLE OF docs,
-      gt_lines TYPE STANDARD TABLE OF tline.
+      gt_lines TYPE STANDARD TABLE OF tline,
+      gt_gpstock TYPE TABLE OF zgpstock.
+
 * Declaration of local variables.
 DATA:
   gs_job_output_info      TYPE ssfcrescl,
@@ -39,11 +43,55 @@ DATA:
   gv_total_eur            TYPE netwr.
 
 
+SELECTION-SCREEN: FUNCTION KEY 1.
+
+INITIALIZATION.
+  sscrfields-functxt_01 = '返回'.
+
+AT SELECTION-SCREEN.
+  CASE sscrfields-ucomm.
+    WHEN 'FC01'.
+      SUBMIT z_gproject_admin_catalogue VIA SELECTION-SCREEN.
+  ENDCASE.
+
+
+start-OF-SELECTION.
+perform fm_judge_matnr.
+perform fm_get_device.
+perform fm_smartforms.
+perform fm_otf_2_pdf.
+perform fm_get_file_name.
+perform fm_download_file.
+
+form fm_judge_matnr.
+  select ZMATNR1,volum FROM zgpstock into @DATA(lt_zgpstock) WHERE ZMATNR1 = @p_matnr1.
+  endselect.
+  IF sy-subrc = 0.
+    lt_zgpstock-volum = lt_zgpstock-volum + p_volum.
+    update zgpstock SET volum = @lt_zgpstock-volum , wared = @p_wared WHERE ZMATNR1 = @p_matnr1.
+    IF sy-subrc = 0.
+      COMMIT WORK AND WAIT.
+    ELSE.
+      ROLLBACK WORK.
+    ENDIF.
+  else.
+    INSERT zgpstock FROM @( VALUE #( zmatnr1 = p_matnr1
+                                  mname = p_mname
+                                  volum = p_volum
+                                  voleh = p_voleh
+                                  mprice = p_mprice
+                                  maadr = p_maadr
+                                  wared = p_wared
+                               ) ).
+  ENDIF.
+
+endform.
 
 
 *&---------------------------------------------------------------------*
 *&     GET DEVICE
 *&---------------------------------------------------------------------*
+form fm_get_device.
 gs_output_options-tdprinter = gv_e_devtype.
 gs_control_parameters-no_dialog = 'X'.
 gs_control_parameters-getotf = 'X'.
@@ -67,11 +115,13 @@ CALL FUNCTION 'SSF_FUNCTION_MODULE_NAME'
     no_form            = 1
     no_function_module = 2
     OTHERS             = 3.
+endform.
 
 
 *&---------------------------------------------------------------------*
 *&     SMARTFORMS '/1BCDWB/SF00000093'
 *&---------------------------------------------------------------------*
+form fm_smartforms.
 CALL FUNCTION gv_fm_name
   EXPORTING
     control_parameters   = gs_control_parameters
@@ -93,13 +143,14 @@ CALL FUNCTION gv_fm_name
 IF sy-subrc <> 0.
 * Implement suitable error handling here
 ENDIF.
-
+endform.
 
 
 
 *&---------------------------------------------------------------------*
 *&     CONVERT OTF TO PDF
 *&---------------------------------------------------------------------*
+form fm_otf_2_pdf.
 CALL FUNCTION 'CONVERT_OTF_2_PDF'
   IMPORTING
     bin_filesize           = gv_bin_filesize
@@ -114,11 +165,13 @@ CALL FUNCTION 'CONVERT_OTF_2_PDF'
 IF sy-subrc <> 0.
 * Implement suitable error handling here
 ENDIF.
+ENDFORM.
 
 
 *&---------------------------------------------------------------------*
 *&     GET FILE NAME
 *&---------------------------------------------------------------------*
+form fm_get_file_name.
 CONCATENATE 'smartform' '.pdf' INTO gv_name.
 CREATE OBJECT gv_guiobj.
 CALL METHOD gv_guiobj->file_save_dialog
@@ -134,11 +187,13 @@ CALL METHOD gv_guiobj->file_save_dialog
 IF gv_uact = gv_guiobj->action_cancel.
   EXIT.
 ENDIF.
+endform.
 
 
 *&---------------------------------------------------------------------*
 *&     DOWNLOAD FILE
 *&---------------------------------------------------------------------*
+form fm_download_file.
 MOVE gv_fullpath TO gv_filename.
 CALL FUNCTION 'GUI_DOWNLOAD'
   EXPORTING
@@ -170,3 +225,4 @@ CALL FUNCTION 'GUI_DOWNLOAD'
     dataprovider_exception  = 20
     control_flush_error     = 21
     OTHERS                  = 22.
+ENDFORM.

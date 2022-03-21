@@ -3,7 +3,7 @@
  <sf:SMARTFORM xmlns:sf="urn:sap-com:SmartForms:2000:internal-structure" xmlns="urn:sap-com:sdixml-ifr:2000">
   <HEADER>
    <FORMNAME>ZF_GPROJECT_OUT_OF_STORAGE</FORMNAME>
-   <CAPTION>入库单</CAPTION>
+   <CAPTION>出库单</CAPTION>
    <MASTERLANG>E</MASTERLANG>
    <LANGVECTOR>*</LANGVECTOR>
    <DEVCLASS></DEVCLASS>
@@ -1749,7 +1749,7 @@
                                  <TEXT>
                                   <item>
                                    <TDFORMAT>P2</TDFORMAT>
-                                   <TDLINE>入库数量</TDLINE>
+                                   <TDLINE>出库数量</TDLINE>
                                   </item>
                                  </TEXT>
                                  <STYLE_NAME>ZFS_GPROJECT</STYLE_NAME>
@@ -1775,7 +1775,7 @@
                                    <INAME>%TEXT4</INAME>
                                    <LINENR>000001</LINENR>
                                    <TDFORMAT>P2</TDFORMAT>
-                                   <TDLINE>入库数量</TDLINE>
+                                   <TDLINE>出库数量</TDLINE>
                                   </item>
                                  </T_TEXT>
                                 </sf:TEXT>

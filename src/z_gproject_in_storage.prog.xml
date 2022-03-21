@@ -16,6 +16,48 @@
      <ENTRY>基于ABAP的商品库存管理系统</ENTRY>
      <LENGTH>15</LENGTH>
     </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_MAADR</KEY>
+     <ENTRY>地址：</ENTRY>
+     <LENGTH>11</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_MATNR1</KEY>
+     <ENTRY>商品编号：</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_MNAME</KEY>
+     <ENTRY>商品名：</ENTRY>
+     <LENGTH>12</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_MPRICE</KEY>
+     <ENTRY>商品价格($)：</ENTRY>
+     <LENGTH>16</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_VOLEH</KEY>
+     <ENTRY>数量单位：</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_VOLUM</KEY>
+     <ENTRY>数量：</ENTRY>
+     <LENGTH>11</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_WARED</KEY>
+     <ENTRY>入库日期：</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
    </TPOOL>
   </asx:values>
  </asx:abap>
