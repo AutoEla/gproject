@@ -76,18 +76,11 @@ INITIALIZATION.
 AT SELECTION-SCREEN.
   CASE sscrfields.
     WHEN 'LB1'.
-*      SELECT * FROM zgpuser INTO TABLE @gt_user.
-*      LOOP AT gt_user INTO DATA(lt_user).
-*        IF p_uname = lt_user-uname AND p_pw = lt_user-password.
-*          SUBMIT z_gproject_catalogue VIA SELECTION-SCREEN.
-*        ENDIF.
-*      ENDLOOP.
-
-
+      SUBMIT Z_GPROJECT_TOTAL VIA SELECTION-SCREEN.
     WHEN 'LB2'.
-      MESSAGE 'Button 2 was clicked' TYPE 'I'.
+      SUBMIT Z_GPROJECT_DOCUMENT_DOWNLOAD VIA SELECTION-SCREEN.
     WHEN 'LB3'.
-      MESSAGE 'Button 3 was clicked' TYPE 'I'.
+      SUBMIT Z_GPROJECT_CHANGE_PASSWORD_CUS VIA SELECTION-SCREEN.
     WHEN 'LB4'.
       SUBMIT z_gproject_main VIA SELECTION-SCREEN.
   ENDCASE.

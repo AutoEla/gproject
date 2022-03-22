@@ -68,7 +68,7 @@ FORM fm_modify.
   lt_gpstock-maadr = pn_maadr.
   SELECT * FROM zgpstock INTO @DATA(lt_zgpstock).
   ENDSELECT.
-  IF lt_zgpstock-zmatnr1 = lt_zgpstock-zmatnr1.
+  IF lt_zgpstock-zmatnr1 = lt_gpstock-zmatnr1.
     UPDATE zgpstock FROM lt_gpstock.
     IF sy-subrc = 0.
       COMMIT WORK AND WAIT.

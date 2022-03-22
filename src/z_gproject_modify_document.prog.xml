@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <PROGDIR>
-    <NAME>Z_GPROJECT_MODIFY_STOCK</NAME>
+    <NAME>Z_GPROJECT_MODIFY_DOCUMENT</NAME>
     <SUBC>1</SUBC>
     <RSTAT>P</RSTAT>
     <RLOAD>E</RLOAD>
@@ -30,69 +30,99 @@
     </item>
     <item>
      <ID>S</ID>
-     <KEY>PN_MAADR</KEY>
-     <ENTRY>库存地址：</ENTRY>
+     <KEY>PN_BELNR</KEY>
+     <ENTRY>报表编号：</ENTRY>
      <LENGTH>13</LENGTH>
     </item>
     <item>
      <ID>S</ID>
-     <KEY>PN_MNAME</KEY>
-     <ENTRY>商品名称：</ENTRY>
+     <KEY>PN_BLART</KEY>
+     <ENTRY>报表类型：</ENTRY>
      <LENGTH>13</LENGTH>
     </item>
     <item>
      <ID>S</ID>
-     <KEY>PN_MPRIC</KEY>
-     <ENTRY>商品价格：</ENTRY>
+     <KEY>PN_BLDAT</KEY>
+     <ENTRY>报表中的报表日期：</ENTRY>
+     <LENGTH>17</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>PN_BUDAT</KEY>
+     <ENTRY>记账日期：</ENTRY>
      <LENGTH>13</LENGTH>
     </item>
     <item>
      <ID>S</ID>
-     <KEY>PN_VOLEH</KEY>
-     <ENTRY>数量单位：</ENTRY>
+     <KEY>PN_BUKRS</KEY>
+     <ENTRY>公司编号:</ENTRY>
      <LENGTH>13</LENGTH>
     </item>
     <item>
      <ID>S</ID>
-     <KEY>PN_VOLUM</KEY>
-     <ENTRY>数量：</ENTRY>
+     <KEY>PN_CPUDT</KEY>
+     <ENTRY>输入日期：</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>PN_GJAHR</KEY>
+     <ENTRY>财年：</ENTRY>
      <LENGTH>11</LENGTH>
     </item>
     <item>
      <ID>S</ID>
-     <KEY>P_MAADR</KEY>
-     <ENTRY>库存地址：</ENTRY>
+     <KEY>PN_MONAT</KEY>
+     <ENTRY>结账期：</ENTRY>
+     <LENGTH>12</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_BELNR</KEY>
+     <ENTRY>报表编号：</ENTRY>
      <LENGTH>13</LENGTH>
     </item>
     <item>
      <ID>S</ID>
-     <KEY>P_MATNR1</KEY>
-     <ENTRY>商品编号：</ENTRY>
+     <KEY>P_BLART</KEY>
+     <ENTRY>报表类型：</ENTRY>
      <LENGTH>13</LENGTH>
     </item>
     <item>
      <ID>S</ID>
-     <KEY>P_MNAME</KEY>
-     <ENTRY>商品名称：</ENTRY>
+     <KEY>P_BLDAT</KEY>
+     <ENTRY>报表中的报表日期：</ENTRY>
+     <LENGTH>17</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_BUDAT</KEY>
+     <ENTRY>记账日期：</ENTRY>
      <LENGTH>13</LENGTH>
     </item>
     <item>
      <ID>S</ID>
-     <KEY>P_MPRICE</KEY>
-     <ENTRY>商品价格：</ENTRY>
+     <KEY>P_BUKRS</KEY>
+     <ENTRY>公司编号:</ENTRY>
      <LENGTH>13</LENGTH>
     </item>
     <item>
      <ID>S</ID>
-     <KEY>P_VOLEH</KEY>
-     <ENTRY>数量单位：</ENTRY>
+     <KEY>P_CPUDT</KEY>
+     <ENTRY>输入日期：</ENTRY>
      <LENGTH>13</LENGTH>
     </item>
     <item>
      <ID>S</ID>
-     <KEY>P_VOLUM</KEY>
-     <ENTRY>数量：</ENTRY>
+     <KEY>P_GJAHR</KEY>
+     <ENTRY>财年：</ENTRY>
      <LENGTH>11</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_MONAT</KEY>
+     <ENTRY>结账期：</ENTRY>
+     <LENGTH>12</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

@@ -5,9 +5,24 @@
 *&---------------------------------------------------------------------*
 REPORT Z_GPROJECT_CUSTOM_SIGN_UP.
 
+TABLES: sscrfields.
+
 PARAMETERS:p_uname  TYPE string,
            p_pwd    TYPE xuncode,
            p_cfmpwd TYPE xuncode.
+
+
+SELECTION-SCREEN: FUNCTION KEY 1.
+
+INITIALIZATION.
+  sscrfields-functxt_01 = '返回'.
+
+AT SELECTION-SCREEN.
+  CASE sscrfields-ucomm.
+    WHEN 'FC01'.
+      SUBMIT z_gproject_main VIA SELECTION-SCREEN.
+  ENDCASE.
+
 
 
 AT SELECTION-SCREEN OUTPUT.

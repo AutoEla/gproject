@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <PROGDIR>
-    <NAME>Z_GPROJECT_DEL_STOCK</NAME>
+    <NAME>Z_GPROJECT_DOCUMENT_DOWNLOAD</NAME>
     <SUBC>1</SUBC>
     <RSTAT>P</RSTAT>
     <RLOAD>E</RLOAD>
@@ -18,9 +18,21 @@
     </item>
     <item>
      <ID>S</ID>
-     <KEY>P_MATNR1</KEY>
-     <ENTRY>商品编号：</ENTRY>
+     <KEY>P_BELNR</KEY>
+     <ENTRY>报表编号：</ENTRY>
      <LENGTH>13</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_BLART</KEY>
+     <ENTRY>报表类型：</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_GJAHR</KEY>
+     <ENTRY>财年：</ENTRY>
+     <LENGTH>11</LENGTH>
     </item>
    </TPOOL>
   </asx:values>
